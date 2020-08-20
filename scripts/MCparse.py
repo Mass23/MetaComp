@@ -62,7 +62,7 @@ def Main():
             direction = row[6]
             gene_name = sample + '_' + str(gene_count)
 
-            sequence = ReverseSequence(sample_fasta[contig_name].seq[pos_beg:pos_end+1], direction)
+            sequence = ReverseSequence(sample_fasta[contig_name].seq[pos_beg-1:pos_end], direction)
             KEGG_annotation = FindKEGG(row)
             KEGG_dict = AddKEGGDict(sample_dict, KEGG_annotation)
             AppendKEGGFasta(KEGG_annotation, sequence, gene_name)
